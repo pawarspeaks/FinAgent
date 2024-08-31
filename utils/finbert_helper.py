@@ -1,29 +1,12 @@
 import sys
 import logging
+import torch
+import numpy as np
+from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
+# Setup logging
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
-
-try:
-    import torch
-    logger.debug("PyTorch imported successfully")
-except ImportError as e:
-    logger.error(f"Failed to import PyTorch: {e}")
-    raise
-
-try:
-    import numpy as np
-    logger.debug("NumPy imported successfully")
-except ImportError as e:
-    logger.error(f"Failed to import NumPy: {e}")
-    raise
-
-try:
-    from transformers import AutoModelForSequenceClassification, AutoTokenizer
-    logger.debug("Transformers imported successfully")
-except ImportError as e:
-    logger.error(f"Failed to import Transformers: {e}")
-    raise
 
 logger.debug(f"Python version: {sys.version}")
 logger.debug(f"NumPy version: {np.__version__}")

@@ -42,20 +42,20 @@ def get_response_func(user_input):
 
 def get_user_context():
     """Retrieve user context for personalized responses."""
-    if st.session_state.user:
+    if "user" in st.session_state and st.session_state.user:
         user = st.session_state.user
         return f"""User Profile:
-        Name: {user['name']}
-        Email: {user['email']}
-        Age: {user['age']}
-        Gender: {user['gender']}
-        Profession: {user['profession']}
-        Annual Earning: ${user['earning']}
-        Insurances: {', '.join(user['insurances'])}
-        Investment Mindset: {user['investment_mindset']}/10
-        Investment Experience: {user['investment_experience']} years
-        Previous Investments: {user['previous_investments']}
-        Properties: {user['properties']}
+        Name: {user.get('name', 'N/A')}
+        Email: {user.get('email', 'N/A')}
+        Age: {user.get('age', 'N/A')}
+        Gender: {user.get('gender', 'N/A')}
+        Profession: {user.get('profession', 'N/A')}
+        Annual Earning: ${user.get('earning', 'N/A')}
+        Insurances: {', '.join(user.get('insurances', []))}
+        Investment Mindset: {user.get('investment_mindset', 'N/A')}/10
+        Investment Experience: {user.get('investment_experience', 'N/A')} years
+        Previous Investments: {user.get('previous_investments', 'N/A')}
+        Properties: {user.get('properties', 'N/A')}
         """
     return "No user context available."
 

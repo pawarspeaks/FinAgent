@@ -1,10 +1,12 @@
-from openai import OpenAI
+import openai
 import os
 from dotenv import load_dotenv
 
+# Load environment variables from .env file
 load_dotenv()
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+# Initialize OpenAI client
+client = openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 def get_gpt3_response(prompt, user_context):
     full_prompt = f"{user_context}\n\nUser: {prompt}\nAssistant:"
@@ -19,4 +21,4 @@ def get_gpt3_response(prompt, user_context):
         stop=None,
         temperature=0.7,
     )
-    return response.choices[0].message.content.strip()
+    return response.choices[0].message['content'].strip()
