@@ -35,6 +35,8 @@ def get_response_func(user_input):
         st.session_state.messages.append({"role": "assistant", "content": response_message})
         
         return f"GPT Response: {response_message}\n\nFinBERT Analysis: {finbert_analysis}"
+    except KeyError as e:
+        return f"KeyError: {str(e)}"
     except Exception as e:
         return f"Error: {str(e)}"
 
