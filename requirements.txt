@@ -1,0 +1,10 @@
+streamlit
+pymongo
+openai
+python-dotenv
+yfinance
+pandas
+numpy
+torch
+transformers
+matplotlib

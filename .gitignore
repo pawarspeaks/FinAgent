@@ -1,0 +1,15 @@
+# Python compiled files
+*$py.class
+
+# Environment variables
+.env
+
+# Virtual environment
+venv/
+.venv/
+
+# Docker
+Dockerfile
+*.dockerignore
+
+
